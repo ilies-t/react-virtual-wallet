@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/react-virtual-wallet/static/css/main.dbd622d8.chunk.css",
+    "main.js": "/react-virtual-wallet/static/js/main.022c5ba8.chunk.js",
+    "main.js.map": "/react-virtual-wallet/static/js/main.022c5ba8.chunk.js.map",
+    "runtime~main.js": "/react-virtual-wallet/static/js/runtime~main.3d8830ac.js",
+    "runtime~main.js.map": "/react-virtual-wallet/static/js/runtime~main.3d8830ac.js.map",
+    "static/js/2.6c306069.chunk.js": "/react-virtual-wallet/static/js/2.6c306069.chunk.js",
+    "static/js/2.6c306069.chunk.js.map": "/react-virtual-wallet/static/js/2.6c306069.chunk.js.map",
+    "index.html": "/react-virtual-wallet/index.html",
+    "precache-manifest.921e043df55f5e0d933576bfea83bd7e.js": "/react-virtual-wallet/precache-manifest.921e043df55f5e0d933576bfea83bd7e.js",
+    "service-worker.js": "/react-virtual-wallet/service-worker.js",
+    "static/css/main.dbd622d8.chunk.css.map": "/react-virtual-wallet/static/css/main.dbd622d8.chunk.css.map",
+    "static/media/style.scss": "/react-virtual-wallet/static/media/egg.64a40092.woff"
+  }
+}
