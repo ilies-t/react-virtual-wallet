@@ -1,0 +1,21 @@
+%button {
+    @extend %smoothTrans ;
+    display: block;
+    width: 225px; padding: 20px; margin-top: 12px;
+    border: none; border-radius: 12px;
+    text-align: center;
+    cursor: pointer;
+    &:hover {
+        opacity: 0.35;
+    }
+}
+.button1 {
+    @extend %button ;
+    background: $color2;
+    color: $color1;
+}
+.button2 {
+    @extend %button ;
+    background: $color2_1;
+    color: $color2;
+}

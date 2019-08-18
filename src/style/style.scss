@@ -1,0 +1,127 @@
+// AUTHOR : https://github.com/ilies-t
+
+// Variables and CSS variables
+:root {
+  --purple:              rgba(24, 20, 45, 1);
+  --yellow:           rgba(239, 232, 152, 1);
+  --yellowLight:   rgba(239, 232, 152, 0.05);
+  --paddingDefault:                       50px;
+}
+$color1:             var(--purple);
+$color2:             var(--yellow);
+$color2_1:      var(--yellowLight);
+$paddX:      var(--paddingDefault);
+%smoothTrans { transition-duration: 400ms;}
+
+// Display | Flex
+@import 'sass/_display.scss' ;
+
+// Align
+@import 'sass/align.scss';
+
+// Text & fonts
+@import 'f.css';
+@import 'sass/_text.scss';
+
+// Button
+@import 'sass/buttons.scss';
+
+// Extender
+%transition-df{transition:ease-in-out 200ms;}
+%transitionScale-df{@extend %transition-df ;transform:scale(1);&:hover{transform:scale(0.85);}}
+%paddLeft {padding-left: 250px;}
+
+// ------------------------------------ START
+html, body {width:100%; height:100%; min-height: 600px; scroll-behavior:smooth;}
+html { background: $color1;}
+::placeholder { opacity: 0.5; color: $color2; }
+
+// sidebar
+@import 'sass/static.scss';
+
+// general
+header {
+  @extend .flex , .jc-sb ;
+  align-items: center;
+  flex-flow: row nowrap;
+  width: 100%; height: 105px; padding: 0px $paddX;
+  h1 {
+    font-size: 40px;
+  }
+  h2 {
+    font-size: 30px;
+  }
+}
+div.balance, div.action {
+  padding-bottom: 20px;
+}
+.recent {
+  padding: 0px $paddX;
+  .itemRecent {
+    @extend .jc-sb ;
+    display: inline-flex;
+    flex-flow: row nowrap;
+    margin-top: 20px; padding: 60px $paddX;
+    width: 100%;
+    background: $color2_1;
+    border-radius: 20px;
+  }
+}
+
+// inputs
+form {
+  @extend .flex ;
+  align-items: center;
+  flex-flow: column nowrap;
+  input {
+    @extend %smoothTrans ;
+    background: none;
+    width: 50%; max-width: 500px; padding: 14px 30px; margin-bottom: 10px;
+    color: $color2;
+    border: 3px solid $color2_1; border-radius: 12px;
+    &:hover { background-color: $color2_1; }
+    &:focus { background-color: $color2_1; border-color: $color2_1; }
+  }
+}
+
+// text
+h2.nbBalance {
+  text-align: right;
+  padding: 0px $paddX;
+  font-size: 50px;
+}
+
+// -------------------- MOBILE
+@media screen and (orientation:portrait)
+{
+  .desktop{display:none;}
+  :root {
+  --paddingDefault: 30px;
+  }
+  header {
+    height: 80px;
+    h1, h2 {
+      font-size: 25px;
+    }
+  }
+  form input {
+    width: 90%;
+  }
+  div.balance, div.action {
+    padding-bottom: 65px;
+  }
+  .recent {
+    padding: 0px $paddX;
+    .itemRecent {
+      flex-flow: column nowrap;
+      h5 {
+        text-align: center;
+        padding-bottom: 10px;
+      }
+    }
+  }
+}
+@media screen and (orientation:landscape){.mobile{display:none;}}
+
+// Reset
+@import 'sass/_reset.scss' ;
