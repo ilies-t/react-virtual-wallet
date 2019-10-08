@@ -1,1 +1,11 @@
-// reusable
+// animation
+
+.fer-appear {
+    top: 75px;
+    opacity: 0.01;
+  }
+.fer-appear.fer-appear-active {
+    top: 0px;
+    opacity: 1;
+    transition: opacity 300ms ease-in;
+}

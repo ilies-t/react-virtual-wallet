@@ -6,7 +6,7 @@ import './style/style.scss';
 function App() {
   return (
     <div className="App">
-      <User name="Username"/>
+      <User name="User"/>
       <Account currency="$"/>
     </div>
   );

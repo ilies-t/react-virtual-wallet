@@ -5,8 +5,7 @@ class User extends Component{
     render() {
         return(
             <header>
-                <h1>Hi {this.props.name}!</h1>
-                <h2>My balance</h2>
+                <h1>Hello {this.props.name}!</h1>
             </header>
         );
     }

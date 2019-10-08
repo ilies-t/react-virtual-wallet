@@ -1,16 +1,16 @@
-// AUTHOR : https://github.com/ilies-t
+// author : ilies <https://github.com/ilies-t>
 
 // Variables and CSS variables
 :root {
-  --purple:              rgba(24, 20, 45, 1);
-  --yellow:           rgba(239, 232, 152, 1);
-  --yellowLight:   rgba(239, 232, 152, 0.05);
-  --paddingDefault:                       50px;
+  --white:             rgba(255, 255, 255, 1);
+  --purple:              rgba(59, 11, 251, 1);
+  --grey:             rgba(59, 11, 251, 0.05);
+  --paddingDefault:                        50px;
 }
-$color1:             var(--purple);
-$color2:             var(--yellow);
-$color2_1:      var(--yellowLight);
-$paddX:      var(--paddingDefault);
+$color1:                     var(--white);
+$color2:                    var(--purple);
+$color2_1:                    var(--grey);
+$paddX:             var(--paddingDefault);
 %smoothTrans { transition-duration: 400ms;}
 
 // Display | Flex
@@ -36,7 +36,7 @@ html, body {width:100%; height:100%; min-height: 600px; scroll-behavior:smooth;}
 html { background: $color1;}
 ::placeholder { opacity: 0.5; color: $color2; }
 
-// sidebar
+// reusable, animations, etc...
 @import 'sass/static.scss';
 
 // general
@@ -46,26 +46,14 @@ header {
   flex-flow: row nowrap;
   width: 100%; height: 105px; padding: 0px $paddX;
   h1 {
-    font-size: 40px;
+    font-size: 30px;
   }
   h2 {
-    font-size: 30px;
+    font-size: 20px;
   }
 }
 div.balance, div.action {
   padding-bottom: 20px;
-}
-.recent {
-  padding: 0px $paddX;
-  .itemRecent {
-    @extend .jc-sb ;
-    display: inline-flex;
-    flex-flow: row nowrap;
-    margin-top: 20px; padding: 60px $paddX;
-    width: 100%;
-    background: $color2_1;
-    border-radius: 20px;
-  }
 }
 
 // inputs
@@ -73,14 +61,36 @@ form {
   @extend .flex ;
   align-items: center;
   flex-flow: column nowrap;
-  input {
-    @extend %smoothTrans ;
-    background: none;
-    width: 50%; max-width: 500px; padding: 14px 30px; margin-bottom: 10px;
-    color: $color2;
-    border: 3px solid $color2_1; border-radius: 12px;
-    &:hover { background-color: $color2_1; }
-    &:focus { background-color: $color2_1; border-color: $color2_1; }
+  div.inputContainer {
+    position: relative;
+    width: 50%; max-width: 400px; margin-bottom: 10px;
+    input {
+      @extend %smoothTrans ;
+      background: none;
+      width: 100%; padding: 14px 30px;
+      color: $color2;
+      border: 3px solid $color2_1; border-radius: 12px;
+      &:hover { background-color: $color2_1; }
+      &:focus { background-color: $color2_1; border-color: $color2_1; }
+    }
+    span {
+      display: block; position: absolute; right: 40px; top: 50%; transform: translateY(-50%);
+    }
+  }
+}
+
+// all transactions
+.recent {
+  padding: 0px $paddX;
+  .itemRecent {
+    @extend .jc-sb ;
+    display: inline-flex;
+    flex-flow: row nowrap;
+    position: relative;
+    margin-top: 20px; padding: 60px $paddX;
+    width: 100%;
+    background: $color2_1;
+    border-radius: 20px;
   }
 }
 
@@ -104,7 +114,7 @@ h2.nbBalance {
       font-size: 25px;
     }
   }
-  form input {
+  form div.inputContainer {
     width: 90%;
   }
   div.balance, div.action {

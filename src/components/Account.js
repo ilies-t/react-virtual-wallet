@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'; // ES6
 
 class Account extends Component{
   constructor(){
@@ -8,9 +9,6 @@ class Account extends Component{
       valueHowMany: '',
       valueTitle: '',
       listAll: [],
-      formError: [
-        {title: 0, number: 0}
-      ]
     };
   };
   
@@ -69,8 +67,16 @@ class Account extends Component{
     return this.state.listAll.map((item, index) => {
       return(
         <div className="itemRecent" key={index}>
-          <h5>{item.title} • {item.date}</h5>
+        <ReactCSSTransitionGroup
+          transitionName="fer"
+          transitionAppear={true}
+          transitionAppearTimeout={500}
+          transitionEnter={false}
+          transitionLeave={false}
+        >
+          <h5>'{item.title}' • {item.date}</h5>
           <h5>{item.transaction}{Number(item.howMany).toLocaleString()} {this.props.currency}</h5>
+        </ReactCSSTransitionGroup>
         </div>
       )
     });
@@ -78,25 +84,29 @@ class Account extends Component{
 
   // render ------------------------------------------------------------------------------------------
   render() {
-    const placeholderHowMany = "How many... (without "+this.props.currency+")"
     return(
       <div>
         <div className="balance">
-          <h2 className="nbBalance">{this.state.count.toLocaleString()} {this.props.currency}</h2>
+          <h2 className="nbBalance">{this.props.currency}{this.state.count.toLocaleString()}</h2>
         </div>
 
         <div className="action">
           <form>
+            <div className="inputContainer">
               <input
                 value={this.state.valueTitle}
                 onChange={(e) => this.setState({ valueTitle: e.target.value })}
-                placeholder='Title of transaction..'
+                placeholder='Title of transaction'
               />
-              <input
-                value={this.state.valueHowMany}
-                onChange={(e) => this.setState({ valueHowMany : e.target.value })}
-                placeholder={placeholderHowMany}
-              />
+            </div>
+              <div className="inputContainer">
+                <input
+                  value={this.state.valueHowMany}
+                  onChange={(e) => this.setState({ valueHowMany : e.target.value })}
+                  placeholder='How many ?'
+                />
+                <span>{this.props.currency}</span>
+              </div>
           <button className="button1" onClick={this.won.bind(this)}>Won</button>
           <button className="button2" onClick={this.spent.bind(this)}>Spent</button>
           </form>
